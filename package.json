@@ -1,0 +1,13 @@
+{
+  "name": "business-project-websites",
+  "private": true,
+  "description": "Generator for fast, booking-ready websites for small local businesses",
+  "scripts": {
+    "build": "node build.js",
+    "serve": "node serve.js",
+    "dev": "node build.js && node serve.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

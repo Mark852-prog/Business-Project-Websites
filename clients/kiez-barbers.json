@@ -1,0 +1,48 @@
+{
+  "preview": true,
+  "lang": "de",
+  "theme": "classic",
+  "schemaType": "HairSalon",
+  "name": "Kiez Barbers",
+  "kicker": "Barbershop in Neukölln",
+  "tagline": "Saubere Fades, klassische Rasuren und guter Kaffee. Mitten im Kiez, seit 2019.",
+  "highlights": ["Walk-ins willkommen", "Kartenzahlung", "Kinderhaarschnitt"],
+  "currency": "EUR",
+  "priceRange": "€€",
+  "contact": {
+    "phone": "+49 30 23125 042",
+    "whatsapp": "+49 30 23125 042",
+    "email": "hallo@kiez-barbers.example",
+    "instagram": "kiezbarbers.demo"
+  },
+  "address": { "street": "Weserstraße 58", "postcode": "12045", "city": "Berlin", "country": "DE", "countryName": "Deutschland" },
+  "booking": { "requestForm": true },
+  "hours": {
+    "mon": [],
+    "tue": ["10:00-19:00"],
+    "wed": ["10:00-19:00"],
+    "thu": ["10:00-20:00"],
+    "fri": ["10:00-20:00"],
+    "sat": ["09:00-16:00"],
+    "sun": []
+  },
+  "services": [
+    { "group": "Haare", "name": "Herrenhaarschnitt", "price": 28, "duration": 30, "description": "Waschen, Schneiden, Styling" },
+    { "group": "Haare", "name": "Skin Fade", "price": 32, "duration": 45 },
+    { "group": "Haare", "name": "Maschinenschnitt", "price": 18, "duration": 20 },
+    { "group": "Haare", "name": "Kinderhaarschnitt (bis 12)", "price": 18, "duration": 25 },
+    { "group": "Bart", "name": "Bart trimmen & Kontur", "price": 16, "duration": 20 },
+    { "group": "Bart", "name": "Klassische Nassrasur", "price": 25, "duration": 30, "description": "Mit heißem Handtuch" },
+    { "group": "Bart", "name": "Haarschnitt + Bart", "price": 40, "duration": 50 }
+  ],
+  "about": [
+    "Kiez Barbers ist ein kleiner Laden mit drei Stühlen und einer klaren Idee: gutes Handwerk ohne Schnickschnack. Wir nehmen uns Zeit für jeden Schnitt und beraten ehrlich, was zu dir passt.",
+    "Komm spontan vorbei oder buch deinen Termin in einer Minute. Der Kaffee geht aufs Haus."
+  ],
+  "reviews": [
+    { "text": "Bester Fade, den ich in Berlin bekommen habe. Pünktlich, entspannt, fairer Preis.", "author": "Jonas M.", "source": "Google" },
+    { "text": "Super Atmosphäre und sehr genaue Arbeit am Bart. Komme jetzt jeden Monat.", "author": "Deniz K.", "source": "Google" },
+    { "text": "Mein Sohn geht inzwischen lieber zum Friseur als auf den Spielplatz.", "author": "Sarah L.", "source": "Instagram" }
+  ],
+  "legal": { "owner": "Max Mustermann" }
+}

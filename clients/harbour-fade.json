@@ -1,0 +1,48 @@
+{
+  "preview": true,
+  "lang": "en",
+  "theme": "bold",
+  "schemaType": "HairSalon",
+  "name": "Harbour Fade Co.",
+  "kicker": "Barbers · Dublin 2",
+  "tagline": "Sharp cuts, straight-razor shaves and no waiting around. Book your chair in under a minute.",
+  "highlights": ["Open late Thu & Fri", "Student discount", "Card & Apple Pay"],
+  "currency": "EUR",
+  "priceRange": "€€",
+  "contact": {
+    "phone": "+353 1 555 0142",
+    "whatsapp": "+353 87 555 0142",
+    "email": "book@harbourfade.example",
+    "instagram": "harbourfade.demo"
+  },
+  "address": { "street": "12 Camden Row", "postcode": "D02 XY00", "city": "Dublin", "country": "IE", "countryName": "Ireland" },
+  "booking": { "requestForm": true },
+  "hours": {
+    "mon": ["09:00-18:00"],
+    "tue": ["09:00-18:00"],
+    "wed": ["09:00-18:00"],
+    "thu": ["09:00-21:00"],
+    "fri": ["09:00-21:00"],
+    "sat": ["09:00-17:00"],
+    "sun": ["12:00-16:00"]
+  },
+  "services": [
+    { "group": "Cuts", "name": "Classic cut", "price": 25, "duration": 30 },
+    { "group": "Cuts", "name": "Skin fade", "price": 28, "duration": 40 },
+    { "group": "Cuts", "name": "Student cut", "price": 20, "duration": 30, "description": "Valid student ID, Mon–Wed" },
+    { "group": "Cuts", "name": "Kids cut (under 12)", "price": 18, "duration": 25 },
+    { "group": "Beard", "name": "Beard shape-up", "price": 15, "duration": 20 },
+    { "group": "Beard", "name": "Straight-razor shave", "price": 30, "duration": 35 },
+    { "group": "Beard", "name": "Cut + beard combo", "price": 38, "duration": 55 }
+  ],
+  "about": [
+    "Harbour Fade Co. started with one chair and a simple rule: every client leaves looking sharper than when they walked in. Four barbers later, that rule hasn't changed.",
+    "Book ahead to skip the queue, or drop in and grab a coffee while you wait."
+  ],
+  "reviews": [
+    { "text": "Cleanest fade in Dublin, hands down. In and out in 35 minutes.", "author": "Cian O.", "source": "Google" },
+    { "text": "Booked on my phone at lunch, got a slot the same evening. Top lads.", "author": "Marek W.", "source": "Google" },
+    { "text": "The hot towel shave is worth every cent.", "author": "Tom D.", "source": "Instagram" }
+  ],
+  "legal": { "owner": "Harbour Fade Co. (demo)" }
+}

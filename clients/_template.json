@@ -1,0 +1,64 @@
+{
+  "preview": true,
+  "lang": "en",
+  "theme": "classic",
+  "schemaType": "HairSalon",
+  "name": "Business Name",
+  "kicker": "Barbershop in City",
+  "tagline": "One sentence about what makes this place worth visiting.",
+  "highlights": ["Walk-ins welcome", "Card payments", "Free Wi-Fi"],
+  "currency": "EUR",
+  "priceRange": "€€",
+  "domain": "",
+  "colors": {},
+  "contact": {
+    "phone": "+353 1 234 5678",
+    "whatsapp": "+353 87 123 4567",
+    "email": "hello@example.com",
+    "instagram": "instagramhandle"
+  },
+  "address": {
+    "street": "1 Main Street",
+    "postcode": "D01 AB12",
+    "city": "Dublin",
+    "country": "IE",
+    "countryName": "Ireland"
+  },
+  "booking": {
+    "url": "",
+    "provider": "",
+    "requestForm": true
+  },
+  "hours": {
+    "mon": ["10:00-19:00"],
+    "tue": ["10:00-19:00"],
+    "wed": ["10:00-19:00"],
+    "thu": ["10:00-20:00"],
+    "fri": ["10:00-20:00"],
+    "sat": ["09:00-17:00"],
+    "sun": []
+  },
+  "services": [
+    { "group": "Hair", "name": "Haircut", "price": 25, "duration": 30, "description": "Wash, cut and style" },
+    { "group": "Hair", "name": "Skin fade", "price": 28, "duration": 40 },
+    { "group": "Beard", "name": "Beard trim", "price": 15, "duration": 20 },
+    { "group": "Beard", "name": "Hot towel shave", "price": 25, "priceFrom": true, "duration": 30 }
+  ],
+  "aboutTitle": "",
+  "about": [
+    "First paragraph about the business, the owner and the story.",
+    "Second paragraph about the atmosphere, the team or what customers love."
+  ],
+  "reviews": [
+    { "text": "Copy a real review from Google or Instagram here, with permission.", "author": "Customer name", "source": "Google", "stars": 5 }
+  ],
+  "heroImage": "",
+  "gallery": [],
+  "legal": {
+    "owner": "Owner's full legal name or company name",
+    "vatId": "",
+    "register": ""
+  },
+  "seoTitle": "",
+  "seoDescription": ""
+}

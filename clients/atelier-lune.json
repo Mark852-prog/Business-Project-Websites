@@ -1,0 +1,48 @@
+{
+  "preview": true,
+  "lang": "fr",
+  "theme": "blush",
+  "schemaType": "NailSalon",
+  "name": "Atelier Lune",
+  "kicker": "Onglerie · Lyon 7e",
+  "tagline": "Manucure, semi-permanent et nail art dans un atelier calme et lumineux, à deux pas de la Guillotière.",
+  "highlights": ["Sur rendez-vous", "Produits vegan", "Carte cadeau"],
+  "currency": "EUR",
+  "priceRange": "€€",
+  "contact": {
+    "phone": "01 99 00 12 34",
+    "whatsapp": "+33 1 99 00 12 34",
+    "email": "bonjour@atelier-lune.example",
+    "instagram": "atelierlune.demo"
+  },
+  "address": { "street": "24 rue de Marseille", "postcode": "69007", "city": "Lyon", "country": "FR", "countryName": "France" },
+  "booking": { "requestForm": true },
+  "hours": {
+    "mon": [],
+    "tue": ["10:00-13:00", "14:00-19:00"],
+    "wed": ["10:00-13:00", "14:00-19:00"],
+    "thu": ["10:00-13:00", "14:00-20:00"],
+    "fri": ["10:00-13:00", "14:00-20:00"],
+    "sat": ["09:30-17:00"],
+    "sun": []
+  },
+  "services": [
+    { "group": "Mains", "name": "Manucure simple", "price": 25, "duration": 30 },
+    { "group": "Mains", "name": "Semi-permanent", "price": 38, "duration": 45, "description": "Couleur au choix, tenue 3 semaines" },
+    { "group": "Mains", "name": "Gel sur ongles naturels", "price": 50, "duration": 75 },
+    { "group": "Mains", "name": "Nail art", "price": 5, "priceFrom": true, "description": "Par ongle, selon le motif" },
+    { "group": "Pieds", "name": "Beauté des pieds", "price": 35, "duration": 45 },
+    { "group": "Pieds", "name": "Semi-permanent pieds", "price": 40, "duration": 50 },
+    { "group": "Pieds", "name": "Dépose", "price": 10, "duration": 15 }
+  ],
+  "aboutTitle": "Un atelier, une passion",
+  "about": [
+    "Atelier Lune, c’est un petit espace pensé pour prendre une vraie pause. Chaque prestation est réalisée avec des produits sélectionnés, vegan et sans les substances les plus controversées.",
+    "Que ce soit pour une manucure express ou un nail art détaillé, on prend le temps d’écouter vos envies."
+  ],
+  "reviews": [
+    { "text": "Un travail d’une précision incroyable, et une tenue parfaite après trois semaines.", "author": "Camille R.", "source": "Google" },
+    { "text": "Lieu apaisant, accueil adorable. Mon rendez-vous préféré du mois !", "author": "Inès B.", "source": "Instagram" }
+  ],
+  "legal": { "owner": "Jeanne Exemple (EI)", "register": "SIRET 000 000 000 00000" }
+}
