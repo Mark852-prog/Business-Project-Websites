@@ -1,8 +1,12 @@
 // Cloudflare Workers config: serves the generated sites in dist/ as static files.
-// Build command: node build.js    Deploy command: npx wrangler deploy
+// "wrangler deploy" runs the build command below first, so the dashboard only
+// needs the deploy command: npx wrangler deploy
 {
   "name": "mark-web",
   "compatibility_date": "2025-09-01",
+  "build": {
+    "command": "node build.js"
+  },
   "assets": {
     "directory": "./dist",
     "html_handling": "auto-trailing-slash",
