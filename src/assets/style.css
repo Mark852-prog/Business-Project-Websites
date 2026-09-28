@@ -139,3 +139,13 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 12px 24px; justify-content: 
 .legal h2 { font-size: 1.5rem; margin-top: 1.6em; }
 
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .btn { transition: none; } }
+
+/* Language switch */
+.langs { display: flex; gap: 2px; font-size: .85rem; }
+.langs a, .langs b { padding: .3em .5em; border-radius: 8px; text-decoration: none; }
+.langs a { color: var(--muted); }
+.langs a:hover { color: var(--text); }
+.langs b { color: var(--accent); }
+.svc small { font-weight: 400; }
+header .btn { white-space: nowrap; }
+@media (max-width: 819px) { header.top .btn.book { display: none; } }

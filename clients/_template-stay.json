@@ -1,0 +1,54 @@
+{
+  "preview": true,
+  "kind": "stay",
+  "lang": "fr",
+  "languages": ["fr", "en"],
+  "theme": "terroir",
+  "schemaType": "BedAndBreakfast",
+  "name": "Le Mas des Oliviers",
+  "kicker": { "fr": "Chambres d'hôtes · Luberon", "en": "Bed & breakfast · Luberon" },
+  "tagline": {
+    "fr": "Trois chambres dans un mas en pierre, une piscine au milieu des oliviers et des petits-déjeuners faits maison. À 10 minutes de Gordes.",
+    "en": "Three rooms in a stone farmhouse, a pool among the olive trees and homemade breakfasts. 10 minutes from Gordes."
+  },
+  "highlights": {
+    "fr": ["Petit-déjeuner inclus", "Piscine", "Parking privé", "Wi-Fi"],
+    "en": ["Breakfast included", "Swimming pool", "Private parking", "Wi-Fi"]
+  },
+  "currency": "EUR",
+  "priceRange": "€€",
+  "contact": {
+    "phone": "04 90 00 00 00",
+    "email": "bonjour@mas-des-oliviers.example"
+  },
+  "address": { "street": "Chemin des Oliviers", "postcode": "84220", "city": "Goult", "country": "FR", "countryName": "France" },
+  "booking": { "maxGuests": 4 },
+  "checkIn": { "fr": "16h – 19h", "en": "4pm – 7pm" },
+  "checkOut": { "fr": "avant 11h", "en": "before 11am" },
+  "info": [
+    { "label": { "fr": "Séjour minimum", "en": "Minimum stay" }, "value": { "fr": "2 nuits (juillet–août : 3 nuits)", "en": "2 nights (July–August: 3 nights)" } },
+    { "label": { "fr": "Animaux", "en": "Pets" }, "value": { "fr": "Non acceptés", "en": "Not allowed" } },
+    { "label": { "fr": "Table d'hôtes", "en": "Dinner" }, "value": { "fr": "Mardi et vendredi, 32 € / pers.", "en": "Tuesday and Friday, €32 per person" } }
+  ],
+  "services": [
+    { "name": { "fr": "Chambre Lavande", "en": "Lavender room" }, "price": 95, "description": { "fr": "Lit 160 · salle d'eau · vue jardin · 2 pers.", "en": "Queen bed · shower room · garden view · 2 guests" } },
+    { "name": { "fr": "Chambre Olivier", "en": "Olive room" }, "price": 110, "description": { "fr": "Lit 180 · terrasse privée · 2 pers.", "en": "King bed · private terrace · 2 guests" } },
+    { "name": { "fr": "Suite Famille", "en": "Family suite" }, "price": 145, "description": { "fr": "2 chambres · lit 160 + 2 lits 90 · 4 pers.", "en": "2 bedrooms · queen + 2 singles · 4 guests" } }
+  ],
+  "aboutTitle": { "fr": "Bienvenue chez nous", "en": "Welcome to our home" },
+  "about": {
+    "fr": [
+      "Nous avons restauré ce mas du XVIIIe siècle pierre par pierre, avec l'envie d'en faire une maison où l'on se sent tout de suite chez soi.",
+      "Le matin, confitures maison et pain du village sous la tonnelle ; l'après-midi, la piscine ou les villages perchés du Luberon ; le soir, un verre de vin local face au coucher de soleil."
+    ],
+    "en": [
+      "We restored this 18th-century farmhouse stone by stone, wanting it to be a place where you feel at home straight away.",
+      "Mornings mean homemade jam and bread from the village under the vine arbour; afternoons, the pool or the hilltop villages of the Luberon; evenings, a glass of local wine facing the sunset."
+    ]
+  },
+  "reviews": [
+    { "text": { "fr": "Un lieu magique, des hôtes adorables et le meilleur petit-déjeuner de notre voyage.", "en": "A magical place, lovely hosts and the best breakfast of our whole trip." }, "author": "Claire & Tom", "source": "Google" },
+    { "text": { "fr": "Chambre impeccable, calme absolu, et de super conseils pour visiter la région.", "en": "Spotless room, total peace and quiet, and great tips for exploring the area." }, "author": "Jan V.", "source": "Booking" }
+  ],
+  "legal": { "owner": "Exemple SARL (démo)" }
+}

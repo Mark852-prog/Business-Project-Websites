@@ -49,8 +49,26 @@ function themeVars(theme) {
     `--heading:${theme.heading};--body:${theme.body};--hw:${theme.headingWeight}}`;
 }
 
+// A text field can be a plain string or one value per language:
+// "tagline": { "fr": "...", "en": "..." }. This picks the right one.
+function isTranslation(v) {
+  return v && typeof v === 'object' && !Array.isArray(v) && Object.keys(v).length > 0 &&
+    Object.keys(v).every(k => k in I18N);
+}
+
+function localize(value, lang, fallback) {
+  if (Array.isArray(value)) return value.map(v => localize(v, lang, fallback));
+  if (isTranslation(value)) return value[lang] ?? value[fallback] ?? Object.values(value)[0];
+  if (value && typeof value === 'object') {
+    const out = {};
+    for (const [k, v] of Object.entries(value)) out[k] = localize(v, lang, fallback);
+    return out;
+  }
+  return value;
+}
+
 function resolve(site) {
-  const s = I18N[site.lang];
+  const s = { ...I18N.en, ...I18N[site.lang] };
   const theme = { ...THEMES[site.theme], ...(site.colors || {}) };
   const money = (amount) => new Intl.NumberFormat(s.locale, {
     style: 'currency', currency: site.currency || 'EUR',
@@ -59,9 +77,9 @@ function resolve(site) {
   return { s, theme, money };
 }
 
-function head(site, theme, title, description, extra = '') {
+function head(site, theme, title, description, extra = '', page = '') {
   const noindex = site.preview ? '<meta name="robots" content="noindex">' : '';
-  const canonical = site.domain && !site.preview ? `<link rel="canonical" href="${esc(site.domain)}/">` : '';
+  const canonical = site.domain && !site.preview ? `<link rel="canonical" href="${esc(site.domain)}/${site.pathPrefix || ''}${page}">` : '';
   return `<!doctype html>
 <html lang="${esc(site.lang)}">
 <head>
@@ -73,7 +91,8 @@ function head(site, theme, title, description, extra = '') {
 <meta property="og:type" content="website">
 <meta property="og:title" content="${esc(title)}">
 <meta property="og:description" content="${esc(description)}">
-${noindex}${canonical}
+${noindex}${canonical}${site.domain && !site.preview && site.langLinks && site.langLinks.length > 1
+  ? site.langLinks.map(l => `<link rel="alternate" hreflang="${esc(l.lang)}" href="${esc(site.domain)}/${l.primary ? '' : l.lang + '/'}${page}">`).join('') : ''}
 <link rel="icon" href="${faviconSvg(site, theme)}">
 <style>${themeVars(theme)}${CSS}</style>
 ${extra}
@@ -102,7 +121,8 @@ function renderServices(site, s, money) {
   const html = groups.map(g => `<div>
     ${g.title ? `<h3>${esc(g.title)}</h3>` : ''}
     <ul class="svc">${g.items.map(svc => {
-      const price = svc.price == null ? '' : (svc.priceFrom ? `${esc(s.from)} ` : '') + esc(money(svc.price));
+      const price = svc.price == null ? '' : (svc.priceFrom ? `${esc(s.from)} ` : '') + esc(money(svc.price)) +
+        (site.kind === 'stay' ? ` <small class="muted">/ ${esc(s.per_night)}</small>` : '');
       const meta = [svc.duration ? `${svc.duration} ${s.min}` : '', svc.description || ''].filter(Boolean).join(' · ');
       return `<li><div class="row"><span class="name">${esc(svc.name)}</span><span class="fill"></span><span class="price">${price}</span></div>${meta ? `<div class="meta">${esc(meta)}</div>` : ''}</li>`;
     }).join('')}</ul>
@@ -110,7 +130,41 @@ function renderServices(site, s, money) {
   return `<div class="services${groups.length > 1 ? ' cols' : ''}">${html}</div>`;
 }
 
+function renderStayBooking(site, s) {
+  const b = site.booking || {};
+  const c = site.contact;
+  const online = b.url ? `
+    <a class="btn block" href="${esc(b.url)}" target="_blank" rel="noopener">${esc(s.booking_online_btn)}${b.provider ? ` · ${esc(b.provider)}` : ''}</a>` : '';
+  const form = (c.whatsapp || c.email) ? `
+    ${online ? `<p class="or">${esc(s.booking_or)}</p>` : ''}
+    <form class="form" id="stay-form">
+      ${site.services.length > 1 ? `<label>${esc(s.f_room)}
+        <select name="room" required>${site.services.map(r => `<option>${esc(r.name)}</option>`).join('')}</select>
+      </label>` : `<input type="hidden" name="room" value="${esc(site.services[0].name)}">`}
+      <div class="two">
+        <label>${esc(s.f_arrival)}<input type="date" name="arrival" required></label>
+        <label>${esc(s.f_departure)}<input type="date" name="departure" required></label>
+      </div>
+      <div class="two">
+        <label>${esc(s.f_guests)}<input type="number" name="guests" min="1" max="${esc(b.maxGuests || 20)}" value="2" required></label>
+        <label>${esc(s.f_name)}<input type="text" name="name" autocomplete="name" required></label>
+      </div>
+      <label>${esc(s.f_note)}<textarea name="note" rows="3"></textarea></label>
+      <button class="btn block" type="submit">${esc(c.whatsapp ? s.f_submit_wa : s.f_submit_mail)}</button>
+    </form>` : '';
+  const phone = c.phone ? `<p class="small" style="margin:18px 0 0">${esc(s.or_call)} <a href="${telHref(c.phone)}">${esc(c.phone)}</a></p>` : '';
+  return `<section class="block" id="book"><div class="wrap split">
+  <div>
+    <p class="eyebrow">${esc(s.book_now)}</p>
+    <h2>${esc(s.stay_title)}</h2>
+    <p class="muted">${esc(s.stay_intro_form)}</p>
+  </div>
+  <div class="card">${online}${form}${phone}</div>
+</div></section>`;
+}
+
 function renderBooking(site, s) {
+  if (site.kind === 'stay') return renderStayBooking(site, s);
   const b = site.booking || {};
   const c = site.contact;
   const canRequest = b.requestForm !== false && (c.whatsapp || c.email);
@@ -169,7 +223,7 @@ function jsonLd(site, money) {
       '@type': 'PostalAddress', streetAddress: a.street, postalCode: a.postcode,
       addressLocality: a.city, addressCountry: a.country
     },
-    openingHoursSpecification: DAY_KEYS.flatMap((key, i) => (site.hours[key] || []).map(r => {
+    openingHoursSpecification: site.hours && DAY_KEYS.flatMap((key, i) => (site.hours[key] || []).map(r => {
       const [opens, closes] = r.split('-');
       return { '@type': 'OpeningHoursSpecification', dayOfWeek: SCHEMA_DAYS[i], opens, closes };
     })),
@@ -188,17 +242,32 @@ function renderHome(site) {
   const hasAbout = site.about && site.about.length;
   const hasReviews = site.reviews && site.reviews.length;
   const hasGallery = site.gallery && site.gallery.length;
-  const heroStyle = site.heroImage ? ` style="--hero-img:url('${esc(site.heroImage)}')"` : '';
+  const base = site.assetBase || '';
+  const heroStyle = site.heroImage ? ` style="--hero-img:url('${esc(base + site.heroImage)}')"` : '';
+  const stay = site.kind === 'stay';
+  const hasHours = !!site.hours;
+  const info = [
+    ...(site.checkIn ? [{ label: s.check_in, value: site.checkIn }] : []),
+    ...(site.checkOut ? [{ label: s.check_out, value: site.checkOut }] : []),
+    ...(site.info || [])
+  ];
+  const langSwitch = (site.langLinks || []).length > 1
+    ? `<span class="langs">${site.langLinks.map(l => l.current
+        ? `<b aria-current="true">${esc(l.lang.toUpperCase())}</b>`
+        : `<a href="${esc(l.href)}" hreflang="${esc(l.lang)}" lang="${esc(l.lang)}" title="${esc(l.name)}">${esc(l.lang.toUpperCase())}</a>`).join('')}</span>`
+    : '';
 
   const clientData = {
     locale: s.locale,
     whatsapp: digits(c.whatsapp),
     email: c.email || '',
-    hours: DAY_KEYS.map(k => site.hours[k] || []),
+    hours: DAY_KEYS.map(k => (site.hours && site.hours[k]) || []),
     strings: {
       open_now: s.open_now, closed_now: s.closed_now, closed: s.closed, booking_title: s.booking_title,
       msg_intro: fill(s.msg_intro, { business: site.name }), msg_service: s.msg_service, msg_date: s.msg_date,
-      msg_time: s.msg_time, msg_name: s.msg_name, msg_note: s.msg_note
+      msg_time: s.msg_time, msg_name: s.msg_name, msg_note: s.msg_note, stay_title: s.stay_title,
+      stay_msg_intro: fill(s.stay_msg_intro, { business: site.name }), msg_room: s.msg_room,
+      msg_arrival: s.msg_arrival, msg_departure: s.msg_departure, msg_nights: s.msg_nights, msg_guests: s.msg_guests
     }
   };
 
@@ -210,11 +279,12 @@ ${previewBanner(site, s)}
 <header class="top"><div class="wrap">
   <a class="brand" href="#">${esc(site.name)}</a>
   <nav>
-    <a href="#services">${esc(s.nav_services)}</a>
+    <a href="#services">${esc(stay ? s.nav_rooms : s.nav_services)}</a>
     ${hasAbout ? `<a href="#about">${esc(s.nav_about)}</a>` : ''}
-    <a href="#visit">${esc(s.nav_hours)}</a>
+    <a href="#visit">${esc(hasHours ? s.nav_hours : s.nav_contact)}</a>
   </nav>
-  <a class="btn" href="#book">${esc(s.book_now)}</a>
+  ${langSwitch}
+  <a class="btn book" href="#book">${esc(s.book_now)}</a>
 </div></header>
 
 <main>
@@ -226,13 +296,13 @@ ${previewBanner(site, s)}
     <a class="btn" href="#book">${esc(s.book_now)}</a>
     ${c.phone ? `<a class="btn ghost" href="${telHref(c.phone)}">${esc(s.call)} ${esc(c.phone)}</a>` : ''}
   </div>
-  <p class="status" data-status hidden><span class="dot"></span><span></span></p>
+  ${hasHours ? '<p class="status" data-status hidden><span class="dot"></span><span></span></p>' : ''}
   ${site.highlights && site.highlights.length ? `<ul class="highlights">${site.highlights.map(h => `<li>${esc(h)}</li>`).join('')}</ul>` : ''}
 </div></section>
 
 <section class="block" id="services"><div class="wrap">
-  <p class="eyebrow">${esc(s.nav_services)}</p>
-  <h2>${esc(s.services_title)}</h2>
+  <p class="eyebrow">${esc(stay ? s.nav_rooms : s.nav_services)}</p>
+  <h2>${esc(stay ? s.rooms_title : s.services_title)}</h2>
   ${renderServices(site, s, money)}
 </div></section>
 
@@ -245,7 +315,7 @@ ${hasAbout ? `<section class="block" id="about"><div class="wrap split">
 
 ${hasGallery ? `<section class="block"><div class="wrap">
   <h2>${esc(s.gallery_title)}</h2>
-  <div class="gallery">${site.gallery.map(img => `<img src="${esc(img.src || img)}" alt="${esc(img.alt || site.name)}" loading="lazy">`).join('')}</div>
+  <div class="gallery">${site.gallery.map(img => `<img src="${esc(base + (img.src || img))}" alt="${esc(img.alt || site.name)}" loading="lazy">`).join('')}</div>
 </div></section>` : ''}
 
 ${hasReviews ? `<section class="block"><div class="wrap">
@@ -270,9 +340,11 @@ ${hasReviews ? `<section class="block"><div class="wrap">
     <a class="btn ghost" href="${esc(mapsUrl(site))}" target="_blank" rel="noopener">${esc(s.directions)}</a>
   </div>
   <div>
-    <h3>${esc(s.hours_title)}</h3>
+    ${hasHours ? `<h3>${esc(s.hours_title)}</h3>
     ${renderHours(site, s)}
-    <p class="status" data-status hidden><span class="dot"></span><span></span></p>
+    <p class="status" data-status hidden><span class="dot"></span><span></span></p>` : ''}
+    ${info.length ? `<h3${hasHours ? ' style="margin-top:32px"' : ''}>${esc(s.stay_info)}</h3>
+    <table class="hours">${info.map(i => `<tr><td>${esc(i.label)}</td><td>${esc(i.value)}</td></tr>`).join('')}</table>` : ''}
   </div>
 </div></section>
 </main>
@@ -296,7 +368,7 @@ function renderLegal(site, host) {
   const l = site.legal || {};
   const a = site.address;
   const owner = l.owner || site.name;
-  return `${head(site, theme, `${s.legal_link} · ${site.name}`, s.legal_link)}
+  return `${head(site, theme, `${s.legal_link} · ${site.name}`, s.legal_link, '', 'legal.html')}
 <body>
 ${previewBanner(site, s)}
 <header class="top"><div class="wrap">
@@ -322,7 +394,8 @@ ${footer(site, s)}
 
 function renderPortfolio(sites) {
   const theme = THEMES.classic;
-  const cards = sites.map(site => {
+  const cards = sites.map(raw => {
+    const site = localize(raw, raw.lang, raw.lang);
     const t = { ...THEMES[site.theme], ...(site.colors || {}) };
     return `<a class="card" href="${esc(site.slug)}/" style="text-decoration:none;display:block;border-top:6px solid ${esc(t.accent)}">
       <h3 style="margin-bottom:.2em">${esc(site.name)}</h3>
@@ -344,4 +417,4 @@ function renderPortfolio(sites) {
 `;
 }
 
-module.exports = { renderHome, renderLegal, renderPortfolio, I18N, THEMES, DAY_KEYS };
+module.exports = { renderHome, renderLegal, renderPortfolio, localize, I18N, THEMES, DAY_KEYS };

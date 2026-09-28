@@ -253,3 +253,81 @@ module.exports = {
     ]
   }
 };
+
+// Text used by holiday rentals and B&Bs ("kind": "stay") and the language switch.
+const STAY = {
+  en: {
+    lang_name: 'English', nav_rooms: 'Rooms', rooms_title: 'Rooms & rates', per_night: 'night',
+    stay_title: 'Book your stay',
+    stay_intro_form: 'Tell us your dates and we will get back to you quickly to confirm availability. Booking direct means the best price, with no platform fees.',
+    f_room: 'Room', f_arrival: 'Arrival', f_departure: 'Departure', f_guests: 'Guests',
+    stay_msg_intro: 'Hello {business}! I would like to book a stay.',
+    msg_room: 'Room', msg_arrival: 'Arrival', msg_departure: 'Departure', msg_nights: 'Nights', msg_guests: 'Guests',
+    check_in: 'Check-in', check_out: 'Check-out', stay_info: 'Good to know'
+  },
+  fr: {
+    lang_name: 'Français', nav_rooms: 'Chambres', rooms_title: 'Chambres & tarifs', per_night: 'nuit',
+    stay_title: 'Réservez votre séjour',
+    stay_intro_form: 'Indiquez-nous vos dates : nous revenons vers vous rapidement pour confirmer la disponibilité. En réservant en direct, vous avez le meilleur prix, sans frais de plateforme.',
+    f_room: 'Chambre', f_arrival: 'Arrivée', f_departure: 'Départ', f_guests: 'Voyageurs',
+    stay_msg_intro: 'Bonjour {business} ! Je souhaiterais réserver un séjour.',
+    msg_room: 'Chambre', msg_arrival: 'Arrivée', msg_departure: 'Départ', msg_nights: 'Nuits', msg_guests: 'Voyageurs',
+    check_in: 'Arrivée', check_out: 'Départ', stay_info: 'Bon à savoir'
+  },
+  de: {
+    lang_name: 'Deutsch', nav_rooms: 'Zimmer', rooms_title: 'Zimmer & Preise', per_night: 'Nacht',
+    stay_title: 'Aufenthalt buchen',
+    stay_intro_form: 'Nennen Sie uns Ihre Reisedaten, wir melden uns schnell und bestätigen die Verfügbarkeit. Direkt buchen heißt: bester Preis, keine Plattformgebühren.',
+    f_room: 'Zimmer', f_arrival: 'Anreise', f_departure: 'Abreise', f_guests: 'Gäste',
+    stay_msg_intro: 'Hallo {business}! Ich möchte gern einen Aufenthalt buchen.',
+    msg_room: 'Zimmer', msg_arrival: 'Anreise', msg_departure: 'Abreise', msg_nights: 'Nächte', msg_guests: 'Gäste',
+    check_in: 'Check-in', check_out: 'Check-out', stay_info: 'Gut zu wissen'
+  },
+  es: {
+    lang_name: 'Español', nav_rooms: 'Habitaciones', rooms_title: 'Habitaciones y tarifas', per_night: 'noche',
+    stay_title: 'Reserva tu estancia',
+    stay_intro_form: 'Indícanos tus fechas y te confirmaremos la disponibilidad enseguida. Reservando directamente tienes el mejor precio, sin comisiones.',
+    f_room: 'Habitación', f_arrival: 'Llegada', f_departure: 'Salida', f_guests: 'Huéspedes',
+    stay_msg_intro: '¡Hola, {business}! Me gustaría reservar una estancia.',
+    msg_room: 'Habitación', msg_arrival: 'Llegada', msg_departure: 'Salida', msg_nights: 'Noches', msg_guests: 'Huéspedes',
+    check_in: 'Entrada', check_out: 'Salida', stay_info: 'Información útil'
+  },
+  it: {
+    lang_name: 'Italiano', nav_rooms: 'Camere', rooms_title: 'Camere e tariffe', per_night: 'notte',
+    stay_title: 'Prenota il tuo soggiorno',
+    stay_intro_form: 'Indicaci le tue date: ti risponderemo subito per confermare la disponibilità. Prenotando direttamente hai il prezzo migliore, senza commissioni.',
+    f_room: 'Camera', f_arrival: 'Arrivo', f_departure: 'Partenza', f_guests: 'Ospiti',
+    stay_msg_intro: 'Ciao {business}! Vorrei prenotare un soggiorno.',
+    msg_room: 'Camera', msg_arrival: 'Arrivo', msg_departure: 'Partenza', msg_nights: 'Notti', msg_guests: 'Ospiti',
+    check_in: 'Check-in', check_out: 'Check-out', stay_info: 'Informazioni utili'
+  },
+  nl: {
+    lang_name: 'Nederlands', nav_rooms: 'Kamers', rooms_title: 'Kamers & prijzen', per_night: 'nacht',
+    stay_title: 'Boek je verblijf',
+    stay_intro_form: 'Laat ons je data weten, dan bevestigen we snel of er plek is. Direct boeken betekent de beste prijs, zonder platformkosten.',
+    f_room: 'Kamer', f_arrival: 'Aankomst', f_departure: 'Vertrek', f_guests: 'Gasten',
+    stay_msg_intro: 'Hallo {business}! Ik wil graag een verblijf boeken.',
+    msg_room: 'Kamer', msg_arrival: 'Aankomst', msg_departure: 'Vertrek', msg_nights: 'Nachten', msg_guests: 'Gasten',
+    check_in: 'Inchecken', check_out: 'Uitchecken', stay_info: 'Goed om te weten'
+  },
+  pl: {
+    lang_name: 'Polski', nav_rooms: 'Pokoje', rooms_title: 'Pokoje i ceny', per_night: 'noc',
+    stay_title: 'Zarezerwuj pobyt',
+    stay_intro_form: 'Podaj daty pobytu, a szybko potwierdzimy dostępność. Rezerwując bezpośrednio, masz najlepszą cenę bez prowizji.',
+    f_room: 'Pokój', f_arrival: 'Przyjazd', f_departure: 'Wyjazd', f_guests: 'Goście',
+    stay_msg_intro: 'Dzień dobry, {business}! Chciałbym/chciałabym zarezerwować pobyt.',
+    msg_room: 'Pokój', msg_arrival: 'Przyjazd', msg_departure: 'Wyjazd', msg_nights: 'Noce', msg_guests: 'Goście',
+    check_in: 'Zameldowanie', check_out: 'Wymeldowanie', stay_info: 'Warto wiedzieć'
+  },
+  pt: {
+    lang_name: 'Português', nav_rooms: 'Quartos', rooms_title: 'Quartos e preços', per_night: 'noite',
+    stay_title: 'Reserve a sua estadia',
+    stay_intro_form: 'Indique-nos as suas datas e confirmamos rapidamente a disponibilidade. Ao reservar diretamente tem o melhor preço, sem comissões.',
+    f_room: 'Quarto', f_arrival: 'Chegada', f_departure: 'Partida', f_guests: 'Hóspedes',
+    stay_msg_intro: 'Olá, {business}! Gostaria de reservar uma estadia.',
+    msg_room: 'Quarto', msg_arrival: 'Chegada', msg_departure: 'Partida', msg_nights: 'Noites', msg_guests: 'Hóspedes',
+    check_in: 'Check-in', check_out: 'Check-out', stay_info: 'Informações úteis'
+  }
+};
+
+for (const lang of Object.keys(STAY)) Object.assign(module.exports[lang], STAY[lang]);

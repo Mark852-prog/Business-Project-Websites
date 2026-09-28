@@ -22,6 +22,11 @@ module.exports = {
     bg: '#f5f9f8', surface: '#ffffff', text: '#16302a', muted: '#566e68', line: '#dde8e5',
     accent: '#17785f', accentText: '#ffffff', heading: SANS, body: SANS, headingWeight: 700
   },
+  // Warm stone and ochre: gîtes, chambres d'hôtes, farm stays, wine estates
+  terroir: {
+    bg: '#f7f3ec', surface: '#fffdf9', text: '#2a241d', muted: '#6c6154', line: '#e5dccd',
+    accent: '#7d5a24', accentText: '#ffffff', heading: SERIF, body: SANS, headingWeight: 500
+  },
   // High contrast: modern barbers, gyms, streetwear-style shops
   bold: {
     bg: '#0c0c0c', surface: '#171717', text: '#ffffff', muted: '#a3a3a3', line: '#2b2b2b',

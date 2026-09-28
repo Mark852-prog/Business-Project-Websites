@@ -11,7 +11,7 @@
 
 const fs = require('fs');
 const path = require('path');
-const { renderHome, renderLegal, renderPortfolio, I18N, THEMES, DAY_KEYS } = require('./src/render');
+const { renderHome, renderLegal, renderPortfolio, localize, I18N, THEMES, DAY_KEYS } = require('./src/render');
 
 const ROOT = __dirname;
 const CLIENTS = path.join(ROOT, 'clients');
@@ -33,7 +33,10 @@ function validate(site) {
   need(site.address && site.address.street && site.address.city, '"address.street" and "address.city" are required');
   need(site.contact && (site.contact.phone || site.contact.whatsapp || site.contact.email), 'add at least one of contact.phone / whatsapp / email');
   need(Array.isArray(site.services) && site.services.length, '"services" needs at least one entry');
-  need(site.hours && typeof site.hours === 'object', '"hours" is missing');
+  need(!site.kind || ['appointment', 'stay'].includes(site.kind), '"kind" must be "appointment" or "stay"');
+  need(site.kind === 'stay' || (site.hours && typeof site.hours === 'object'), '"hours" is missing');
+  for (const l of site.languages || []) need(I18N[l], `"languages": unknown language "${l}"`);
+  if (site.languages) need(site.languages.includes(site.lang), '"languages" must include the main "lang"');
   if (site.hours) {
     for (const key of Object.keys(site.hours)) {
       need(DAY_KEYS.includes(key), `unknown day "${key}" in hours (use ${DAY_KEYS.join(', ')})`);
@@ -68,10 +71,30 @@ function loadClients() {
     .filter(Boolean);
 }
 
+// The main language goes at the site root, every other language in /<lang>/.
 function writeSite(site, outDir) {
-  fs.mkdirSync(outDir, { recursive: true });
-  fs.writeFileSync(path.join(outDir, 'index.html'), renderHome(site));
-  fs.writeFileSync(path.join(outDir, 'legal.html'), renderLegal(site, HOST));
+  const primary = site.lang;
+  const langs = site.languages || [primary];
+  for (const lang of langs) {
+    const isPrimary = lang === primary;
+    const dir = isPrimary ? outDir : path.join(outDir, lang);
+    const page = {
+      ...localize(site, lang, primary),
+      lang,
+      pathPrefix: isPrimary ? '' : lang + '/',
+      assetBase: isPrimary ? '' : '../',
+      langLinks: langs.map(l => ({
+        lang: l,
+        name: I18N[l].lang_name,
+        primary: l === primary,
+        current: l === lang,
+        href: (isPrimary ? '' : '../') + (l === primary ? '' : l + '/')
+      })).map(l => ({ ...l, href: l.href || './' }))
+    };
+    fs.mkdirSync(dir, { recursive: true });
+    fs.writeFileSync(path.join(dir, 'index.html'), renderHome(page));
+    fs.writeFileSync(path.join(dir, 'legal.html'), renderLegal(page, HOST));
+  }
 
   const assets = path.join(CLIENTS, site.slug);
   if (fs.existsSync(assets)) fs.cpSync(assets, outDir, { recursive: true });
@@ -80,7 +103,10 @@ function writeSite(site, outDir) {
     fs.writeFileSync(path.join(outDir, 'robots.txt'), `User-agent: *\nAllow: /\nSitemap: ${site.domain}/sitemap.xml\n`);
     fs.writeFileSync(path.join(outDir, 'sitemap.xml'),
       `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
-      `  <url><loc>${site.domain}/</loc></url>\n  <url><loc>${site.domain}/legal.html</loc></url>\n</urlset>\n`);
+      (site.languages || [site.lang]).map(l => {
+        const prefix = l === site.lang ? '' : l + '/';
+        return `  <url><loc>${site.domain}/${prefix}</loc></url>\n  <url><loc>${site.domain}/${prefix}legal.html</loc></url>\n`;
+      }).join('') + `</urlset>\n`);
   }
 }
 
@@ -98,13 +124,13 @@ function main() {
     const site = sites.find(s => s.slug === only);
     if (!site) return fail(`no client called "${only}" in clients/`);
     writeSite(site, DIST);
-    console.log(`✔ ${site.name} -> dist/`);
+    console.log(`✔ ${site.slug} -> dist/`);
     return;
   }
 
   for (const site of sites) {
     writeSite(site, path.join(DIST, site.slug));
-    console.log(`✔ ${site.name} -> dist/${site.slug}/`);
+    console.log(`✔ ${site.slug} -> dist/${site.slug}/`);
   }
   fs.writeFileSync(path.join(DIST, 'index.html'), renderPortfolio(sites));
   console.log(`✔ portfolio -> dist/index.html (${sites.length} sites)`);
