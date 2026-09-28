@@ -133,6 +133,10 @@ function main() {
     console.log(`✔ ${site.slug} -> dist/${site.slug}/`);
   }
   fs.writeFileSync(path.join(DIST, 'index.html'), renderPortfolio(sites));
+  fs.writeFileSync(path.join(DIST, '404.html'),
+    '<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">' +
+    '<title>Page not found</title><body style="font:18px system-ui;text-align:center;padding:80px 16px">' +
+    '<h1>Page not found</h1><p><a href="/">See all websites</a></p></body>');
   console.log(`✔ portfolio -> dist/index.html (${sites.length} sites)`);
 }
 

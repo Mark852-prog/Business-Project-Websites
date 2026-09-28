@@ -1,0 +1,11 @@
+// Cloudflare Workers config: serves the generated sites in dist/ as static files.
+// Build command: node build.js    Deploy command: npx wrangler deploy
+{
+  "name": "mark-web",
+  "compatibility_date": "2025-09-01",
+  "assets": {
+    "directory": "./dist",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page"
+  }
+}

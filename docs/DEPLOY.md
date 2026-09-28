@@ -31,6 +31,16 @@ Each paying client gets their **own Pages project**, so their site sits at the r
    - If the client's domain is at another registrar (IONOS, OVH, Namecheap and so on), Cloudflare shows a **CNAME record** to add. The client can do this, or can give you access.
    - The simplest option: the client buys the domain **through Cloudflare Registrar** in their own account at cost price, then adds you as a member. Everything then happens in one place.
 
+## If you created a Worker instead of a Pages project
+
+That works too. The repo includes `wrangler.jsonc`, which tells Cloudflare to serve the `dist/` folder.
+In the Worker, go to **Settings → Build** and set:
+- **Build command:** `node build.js`
+- **Deploy command:** `npx wrangler deploy`
+- **Branch:** `claude/small-business-websites-6mgga0`
+
+The site is then at `https://mark-web.<your-subdomain>.workers.dev/`. The `"name"` in `wrangler.jsonc` must match the Worker's name.
+
 ## Other free options
 
 - **Netlify** (free tier): same idea. Build command `node build.js`, publish directory `dist`.
