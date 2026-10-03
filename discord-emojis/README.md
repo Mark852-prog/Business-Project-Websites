@@ -13,3 +13,8 @@ Server Settings → Emoji → **Upload Emoji**. You can select several files at 
 Emoji slots without boosts: 50 static. Level 1: 100. Level 2: 150. Level 3: 250.
 
 Icons are from Font Awesome Free (CC BY 4.0, https://fontawesome.com/license/free).
+
+## Essentials (50)
+`essentials-50/` holds a ready-to-upload pick for 50 free slots:
+- **25 orange:** server, rules and info icons (rules, gavel, handbook, info, warning, ban, megaphone, ticket, staff, admin, Discord and more).
+- **25 white:** roleplay and department icons (police, ID badge, handcuffs, jail, medic, ambulance, fire, dispatch, radio, cars, gun, courthouse, money and more).
