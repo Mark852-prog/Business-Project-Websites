@@ -199,6 +199,14 @@ function renderBooking(site, s) {
 </div></section>`;
 }
 
+// A slow, looping strip of service names under the hero (decorative only)
+function renderTicker(site) {
+  const names = [...new Set(site.services.map(svc => svc.group || svc.name))];
+  if (site.kind === 'stay' || names.length < 2) return '';
+  const run = names.map(n => `<span>${esc(n)}</span><b>✦</b>`).join('');
+  return `<div class="ticker" aria-hidden="true"><div class="ticker-track">${run}${run}${run}${run}</div></div>`;
+}
+
 function renderHours(site, s) {
   return `<table class="hours">${DAY_KEYS.map((key, i) => {
     const r = site.hours[key] || [];
@@ -302,7 +310,11 @@ ${previewBanner(site, s)}
   </div>
   ${hasHours ? '<p class="status" data-status hidden><span class="dot"></span><span></span></p>' : ''}
   ${site.highlights && site.highlights.length ? `<ul class="highlights">${site.highlights.map(h => `<li>${esc(h)}</li>`).join('')}</ul>` : ''}
-</div></section>
+</div>
+${site.heroImage ? '' : `<div class="hero-art" aria-hidden="true"><i></i><i></i><i></i><span>${esc(initials(site.name))}</span></div>`}
+</section>
+
+${renderTicker(site)}
 
 <section class="block" id="services"><div class="wrap">
   <p class="eyebrow">${esc(stay ? s.nav_rooms : s.nav_services)}</p>

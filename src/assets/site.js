@@ -2,6 +2,21 @@
   var data = JSON.parse(document.getElementById('site-data').textContent);
   var s = data.strings;
 
+  // Fade sections in as they scroll into view. Content stays visible without JS
+  // or with reduced motion, because the hidden state only applies under html.reveal.
+  if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.documentElement.classList.add('reveal');
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { rootMargin: '0px 0px -8% 0px' });
+    document.querySelectorAll('section.block .wrap > *, .svc li, .review, .gallery img').forEach(function (el, i) {
+      el.style.setProperty('--d', (i % 6) * 60 + 'ms');
+      io.observe(el);
+    });
+  }
+
   // Monday = 0 ... Sunday = 6, to match the hours table.
   function dayIndex(date) { return (date.getDay() + 6) % 7; }
   function toMinutes(hhmm) { var p = hhmm.split(':'); return +p[0] * 60 + +p[1]; }

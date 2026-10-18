@@ -138,7 +138,71 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 12px 24px; justify-content: 
 .legal h1 { font-size: clamp(2rem, 5vw, 2.8rem); }
 .legal h2 { font-size: 1.5rem; margin-top: 1.6em; }
 
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .btn { transition: none; } }
+/* Motion and decoration */
+.hero { isolation: isolate; }
+.hero > .wrap { position: relative; z-index: 1; }
+.hero .eyebrow, .hero h1, .hero .lead, .hero .actions, .hero .highlights, .hero .status {
+  animation: rise .8s cubic-bezier(.2, .7, .2, 1) both;
+}
+.hero h1 { animation-delay: .08s; }
+.hero .lead { animation-delay: .16s; }
+.hero .actions { animation-delay: .24s; }
+.hero .highlights, .hero .status { animation-delay: .32s; }
+@keyframes rise { from { opacity: 0; transform: translateY(18px); } }
+
+/* Soft floating shapes and a large monogram behind the hero text */
+.hero-art { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+.hero-art i {
+  position: absolute; border-radius: 50%; filter: blur(48px); opacity: .55;
+  background: color-mix(in srgb, var(--accent) 45%, transparent);
+  animation: drift 18s ease-in-out infinite alternate;
+}
+.hero-art i:nth-child(1) { width: 340px; height: 340px; right: -60px; top: -40px; }
+.hero-art i:nth-child(2) { width: 220px; height: 220px; right: 22%; bottom: -60px; opacity: .35; animation-duration: 23s; animation-direction: alternate-reverse; }
+.hero-art i:nth-child(3) { width: 160px; height: 160px; left: -40px; bottom: 10%; opacity: .25; animation-duration: 27s; }
+.hero-art span {
+  position: absolute; right: 6%; top: 50%; transform: translateY(-50%);
+  font-family: var(--heading); font-weight: var(--hw); line-height: 1;
+  font-size: clamp(9rem, 26vw, 22rem); letter-spacing: -.04em;
+  color: transparent; -webkit-text-stroke: 1.5px color-mix(in srgb, var(--accent) 45%, transparent);
+  opacity: 0; animation: fade 1.4s .3s ease forwards;
+}
+@media (max-width: 700px) { .hero-art span { right: -4%; top: 22%; opacity: 0; animation-name: fade-soft; } }
+@keyframes drift { to { transform: translate(-40px, 30px) scale(1.12); } }
+@keyframes fade { to { opacity: 1; } }
+@keyframes fade-soft { to { opacity: .45; } }
+
+/* Ticker of services under the hero */
+.ticker { overflow: hidden; border-block: 1px solid var(--line); background: var(--surface); padding: 14px 0; }
+.ticker-track { display: flex; width: max-content; gap: 28px; animation: slide 40s linear infinite; }
+.ticker span { font-family: var(--heading); font-weight: var(--hw); font-size: 1.15rem; white-space: nowrap; }
+.ticker b { color: var(--accent); font-weight: 400; }
+@keyframes slide { to { transform: translateX(-50%); } }
+
+/* Hover details */
+.svc li { transition: background .2s ease, padding .2s ease; border-radius: 10px; }
+.svc li:hover { background: color-mix(in srgb, var(--accent) 7%, transparent); padding-inline: 12px; }
+.card, .review { transition: transform .25s ease, box-shadow .25s ease; }
+.card:hover, .review:hover { transform: translateY(-3px); box-shadow: 0 18px 40px -24px color-mix(in srgb, var(--text) 45%, transparent); }
+.card { box-shadow: 0 24px 60px -36px color-mix(in srgb, var(--accent) 60%, transparent); }
+.btn { box-shadow: 0 10px 24px -14px var(--accent); }
+.btn.ghost { box-shadow: none; }
+.gallery img { transition: transform .4s ease; }
+.gallery img:hover { transform: scale(1.03); }
+
+/* Scroll reveal (only when site.js turns it on) */
+html.reveal section.block .wrap > *, html.reveal .svc li, html.reveal .review, html.reveal .gallery img {
+  opacity: 0; transform: translateY(22px);
+  transition: opacity .7s ease var(--d, 0ms), transform .7s cubic-bezier(.2, .7, .2, 1) var(--d, 0ms), background .2s ease, padding .2s ease;
+}
+html.reveal .in { opacity: 1 !important; transform: none !important; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .btn { transition: none; }
+  *, *::before, *::after { animation: none !important; }
+  .hero-art span { opacity: .45; }
+}
 
 /* Language switch */
 .langs { display: flex; gap: 2px; font-size: .85rem; }
