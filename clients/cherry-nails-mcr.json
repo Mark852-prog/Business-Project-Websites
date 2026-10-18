@@ -1,0 +1,107 @@
+{
+  "preview": true,
+  "lang": "en",
+  "theme": "blush",
+  "schemaType": "NailSalon",
+  "name": "Cherry Nails",
+  "kicker": "Nail artist in Manchester city centre",
+  "tagline": "Gel, BIAB, extensions and hand-drawn nail art in the centre of Manchester.",
+  "highlights": [
+    "Russian manicure",
+    "Hand-drawn nail art",
+    "City centre"
+  ],
+  "currency": "GBP",
+  "priceRange": "££",
+  "domain": "",
+  "colors": {},
+  "contact": {
+    "phone": "",
+    "whatsapp": "",
+    "email": "",
+    "instagram": "cherry_nails_mcr"
+  },
+  "address": {
+    "street": "",
+    "postcode": "",
+    "city": "Manchester",
+    "country": "GB",
+    "countryName": "United Kingdom"
+  },
+  "booking": {
+    "url": "",
+    "provider": "",
+    "requestForm": true
+  },
+  "services": [
+    {
+      "group": "Nails",
+      "name": "Gel nails",
+      "price": 20
+    },
+    {
+      "group": "Nails",
+      "name": "BIAB",
+      "price": 30
+    },
+    {
+      "group": "Nails",
+      "name": "Russian manicure"
+    },
+    {
+      "group": "Gel extensions",
+      "name": "Short",
+      "price": 40
+    },
+    {
+      "group": "Gel extensions",
+      "name": "Medium",
+      "price": 45
+    },
+    {
+      "group": "Gel extensions",
+      "name": "Long",
+      "price": 50
+    },
+    {
+      "group": "Nail art (add-on)",
+      "name": "Tier 1",
+      "price": 10,
+      "description": "French, chrome, cat eye, ombré, simple designs"
+    },
+    {
+      "group": "Nail art (add-on)",
+      "name": "Tier 2",
+      "price": 20,
+      "description": "Chrome or cat-eye French, more designs"
+    },
+    {
+      "group": "Nail art (add-on)",
+      "name": "Tier 3",
+      "price": 35,
+      "description": "Intricate hand-drawn designs"
+    },
+    {
+      "group": "Nail art (add-on)",
+      "name": "Tier 4",
+      "price": 50,
+      "priceFrom": true,
+      "description": "Complex 3D and detailed drawings"
+    }
+  ],
+  "aboutTitle": "",
+  "about": [
+    "Carina is a nail artist based in the centre of Manchester, offering Russian manicures, BIAB and gel extensions.",
+    "Her nail art goes from a simple French to complex, hand-drawn 3D designs."
+  ],
+  "reviews": [],
+  "heroImage": "",
+  "gallery": [],
+  "legal": {
+    "owner": "Cherry Nails",
+    "vatId": "",
+    "register": ""
+  },
+  "seoTitle": "",
+  "seoDescription": ""
+}

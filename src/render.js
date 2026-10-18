@@ -184,14 +184,18 @@ function renderBooking(site, s) {
       <label>${esc(s.f_note)}<textarea name="note" rows="2"></textarea></label>
       <button class="btn block" type="submit">${esc(c.whatsapp ? s.f_submit_wa : s.f_submit_mail)}</button>
     </form>` : '';
+  // No booking link and no WhatsApp/email: fall back to an Instagram DM
+  const dm = !online && !form && c.instagram ? `
+    <a class="btn block" href="https://ig.me/m/${esc(c.instagram)}" target="_blank" rel="noopener">${esc(s.booking_dm_btn)}</a>` : '';
+  const intro = b.url ? s.booking_intro_online : dm ? s.booking_intro_dm : s.booking_intro_form;
   const phone = c.phone ? `<p class="small" style="margin:18px 0 0">${esc(s.or_call)} <a href="${telHref(c.phone)}">${esc(c.phone)}</a></p>` : '';
   return `<section class="block" id="book"><div class="wrap split">
   <div>
     <p class="eyebrow">${esc(s.book_now)}</p>
     <h2>${esc(s.booking_title)}</h2>
-    <p class="muted">${esc(b.url ? s.booking_intro_online : s.booking_intro_form)}</p>
+    <p class="muted">${esc(intro)}</p>
   </div>
-  <div class="card">${online}${form}${phone}</div>
+  <div class="card">${online}${form}${dm}${phone}</div>
 </div></section>`;
 }
 
@@ -331,7 +335,7 @@ ${hasReviews ? `<section class="block"><div class="wrap">
   <div>
     <p class="eyebrow">${esc(s.nav_contact)}</p>
     <h2>${esc(s.find_title)}</h2>
-    <address>${esc(a.street)}<br>${esc([a.postcode, a.city].filter(Boolean).join(' '))}</address>
+    <address>${a.street ? `${esc(a.street)}<br>` : ''}${esc([a.postcode, a.city].filter(Boolean).join(' '))}</address>
     <ul class="contact-list">
       ${c.phone ? `<li>${esc(s.phone)}: <a href="${telHref(c.phone)}">${esc(c.phone)}</a></li>` : ''}
       ${c.email ? `<li>${esc(s.email)}: <a href="mailto:${esc(c.email)}">${esc(c.email)}</a></li>` : ''}

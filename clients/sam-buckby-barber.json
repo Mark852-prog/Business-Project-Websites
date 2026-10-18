@@ -1,0 +1,70 @@
+{
+  "preview": true,
+  "lang": "en",
+  "theme": "classic",
+  "schemaType": "HairSalon",
+  "name": "Sam Buckby",
+  "kicker": "Barber in Manchester",
+  "tagline": "Men's hair specialist with six years behind the chair. Deansgate based, with mobile cuts available.",
+  "highlights": [
+    "6 years experience",
+    "Mobile cuts available",
+    "Deansgate, Manchester"
+  ],
+  "currency": "GBP",
+  "priceRange": "££",
+  "domain": "",
+  "colors": {},
+  "contact": {
+    "phone": "",
+    "whatsapp": "",
+    "email": "",
+    "instagram": "buckbyhair"
+  },
+  "address": {
+    "street": "",
+    "postcode": "",
+    "city": "Manchester",
+    "country": "GB",
+    "countryName": "United Kingdom"
+  },
+  "booking": {
+    "url": "",
+    "provider": "",
+    "requestForm": true
+  },
+  "services": [
+    {
+      "group": "Hair",
+      "name": "Haircut"
+    },
+    {
+      "group": "Hair",
+      "name": "Skin fade"
+    },
+    {
+      "group": "Hair",
+      "name": "Mobile haircut",
+      "description": "At your home, office or hotel"
+    },
+    {
+      "group": "Beard",
+      "name": "Beard trim"
+    }
+  ],
+  "aboutTitle": "",
+  "about": [
+    "Sam is a men's hair specialist with six years of experience, cutting in Deansgate, Manchester.",
+    "Can't make it in? Sam also comes to you for mobile cuts across Manchester."
+  ],
+  "reviews": [],
+  "heroImage": "",
+  "gallery": [],
+  "legal": {
+    "owner": "Sam Buckby",
+    "vatId": "",
+    "register": ""
+  },
+  "seoTitle": "",
+  "seoDescription": ""
+}

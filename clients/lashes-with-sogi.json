@@ -1,0 +1,78 @@
+{
+  "preview": true,
+  "lang": "en",
+  "theme": "blush",
+  "schemaType": "BeautySalon",
+  "name": "Lashes with Sogi",
+  "kicker": "Lash artist in Manchester",
+  "tagline": "Luxury lash extensions and brows, with every lash placed with precision.",
+  "highlights": [
+    "Volume & wispy sets",
+    "Brow lamination",
+    "Lash training"
+  ],
+  "currency": "GBP",
+  "priceRange": "££",
+  "domain": "",
+  "colors": {},
+  "contact": {
+    "phone": "",
+    "whatsapp": "",
+    "email": "",
+    "instagram": "lasheswithsogi"
+  },
+  "address": {
+    "street": "",
+    "postcode": "",
+    "city": "Manchester",
+    "country": "GB",
+    "countryName": "United Kingdom"
+  },
+  "booking": {
+    "url": "",
+    "provider": "",
+    "requestForm": true
+  },
+  "services": [
+    {
+      "group": "Lashes",
+      "name": "Volume set",
+      "price": 55
+    },
+    {
+      "group": "Lashes",
+      "name": "Wispy / spiky set"
+    },
+    {
+      "group": "Lashes",
+      "name": "Lash refill"
+    },
+    {
+      "group": "Lashes",
+      "name": "Lash lift"
+    },
+    {
+      "group": "Brows",
+      "name": "Brow lamination"
+    },
+    {
+      "group": "Training",
+      "name": "Professional lash training"
+    }
+  ],
+  "aboutTitle": "",
+  "about": [
+    "Sogi is a Manchester lash artist offering luxury extensions, from natural classics to full volume and spiky sets.",
+    "Brow services and professional lash training are available too."
+  ],
+  "reviews": [],
+  "heroImage": "",
+  "gallery": [],
+  "legal": {
+    "owner": "Lashes with Sogi",
+    "vatId": "",
+    "register": ""
+  },
+  "seoTitle": "",
+  "seoDescription": ""
+}

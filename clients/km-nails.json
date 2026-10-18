@@ -1,0 +1,74 @@
+{
+  "preview": true,
+  "lang": "en",
+  "theme": "blush",
+  "schemaType": "NailSalon",
+  "name": "KM Nails",
+  "kicker": "Nail artist in Manchester",
+  "tagline": "Builder gel, BIAB nail designs and toenail reconstruction in Manchester.",
+  "highlights": [
+    "Builder gel & BIAB",
+    "Nail art",
+    "Accredited courses"
+  ],
+  "currency": "GBP",
+  "priceRange": "££",
+  "domain": "",
+  "colors": {},
+  "contact": {
+    "phone": "",
+    "whatsapp": "",
+    "email": "",
+    "instagram": "kmnailsxx"
+  },
+  "address": {
+    "street": "",
+    "postcode": "",
+    "city": "Manchester",
+    "country": "GB",
+    "countryName": "United Kingdom"
+  },
+  "booking": {
+    "url": "",
+    "provider": "",
+    "requestForm": true
+  },
+  "services": [
+    {
+      "group": "Nails",
+      "name": "BIAB nail design",
+      "price": 40
+    },
+    {
+      "group": "Nails",
+      "name": "Builder gel"
+    },
+    {
+      "group": "Nails",
+      "name": "Nail art"
+    },
+    {
+      "group": "Nails",
+      "name": "Toenail reconstruction"
+    },
+    {
+      "group": "Training",
+      "name": "Accredited 1-to-1 nail course"
+    }
+  ],
+  "aboutTitle": "",
+  "about": [
+    "KM Nails is a Manchester nail artist specialising in builder gel, BIAB designs and nail art.",
+    "Fully accredited 1-to-1 courses are available for new nail techs. A deposit secures your booking."
+  ],
+  "reviews": [],
+  "heroImage": "",
+  "gallery": [],
+  "legal": {
+    "owner": "KM Nails",
+    "vatId": "",
+    "register": ""
+  },
+  "seoTitle": "",
+  "seoDescription": ""
+}

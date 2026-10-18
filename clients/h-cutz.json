@@ -1,0 +1,68 @@
+{
+  "preview": true,
+  "lang": "en",
+  "theme": "bold",
+  "schemaType": "HairSalon",
+  "name": "H.Cutz",
+  "kicker": "Barber in Manchester",
+  "tagline": "Clean tapers and sharp fades in Manchester.",
+  "highlights": [
+    "Taper fades",
+    "Skin fades",
+    "Afro hair"
+  ],
+  "currency": "GBP",
+  "priceRange": "££",
+  "domain": "",
+  "colors": {},
+  "contact": {
+    "phone": "",
+    "whatsapp": "",
+    "email": "",
+    "instagram": "hi_cutzz"
+  },
+  "address": {
+    "street": "",
+    "postcode": "",
+    "city": "Manchester",
+    "country": "GB",
+    "countryName": "United Kingdom"
+  },
+  "booking": {
+    "url": "",
+    "provider": "",
+    "requestForm": true
+  },
+  "services": [
+    {
+      "group": "Hair",
+      "name": "Taper fade"
+    },
+    {
+      "group": "Hair",
+      "name": "Low taper"
+    },
+    {
+      "group": "Hair",
+      "name": "Skin fade"
+    },
+    {
+      "group": "Hair",
+      "name": "Haircut"
+    }
+  ],
+  "aboutTitle": "",
+  "about": [
+    "Fresh tapers and fades in Manchester. See the latest cuts on Instagram."
+  ],
+  "reviews": [],
+  "heroImage": "",
+  "gallery": [],
+  "legal": {
+    "owner": "H.Cutz",
+    "vatId": "",
+    "register": ""
+  },
+  "seoTitle": "",
+  "seoDescription": ""
+}

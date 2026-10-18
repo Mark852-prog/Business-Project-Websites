@@ -15,6 +15,8 @@ module.exports = {
     booking_intro_form: 'Choose a service and a time that suits you. We will confirm your appointment by message.',
     booking_intro_online: 'Pick your service and a free time slot online. It takes less than a minute.',
     booking_online_btn: 'Book online', booking_or: 'or send us a request',
+    booking_dm_btn: 'Message on Instagram to book',
+    booking_intro_dm: 'Send a message on Instagram with the service and the day you would like, and we will reply with a time.',
     f_service: 'Service', f_date: 'Date', f_time: 'Preferred time', f_name: 'Your name',
     f_note: 'Anything else? (optional)', f_submit_wa: 'Send request via WhatsApp', f_submit_mail: 'Send request by email',
     msg_intro: 'Hi {business}! I would like to book an appointment.',

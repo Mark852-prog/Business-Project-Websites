@@ -1,0 +1,64 @@
+{
+  "preview": true,
+  "lang": "en",
+  "theme": "blush",
+  "schemaType": "BeautySalon",
+  "name": "BB Beauty",
+  "kicker": "Brow specialist in Manchester",
+  "tagline": "Your brow girl. Fuller, lifted, defined brows in Manchester.",
+  "highlights": [
+    "Brow lamination",
+    "Brow shaping",
+    "Manchester"
+  ],
+  "currency": "GBP",
+  "priceRange": "££",
+  "domain": "",
+  "colors": {},
+  "contact": {
+    "phone": "",
+    "whatsapp": "",
+    "email": "",
+    "instagram": "bbbeauty_mads"
+  },
+  "address": {
+    "street": "",
+    "postcode": "",
+    "city": "Manchester",
+    "country": "GB",
+    "countryName": "United Kingdom"
+  },
+  "booking": {
+    "url": "",
+    "provider": "",
+    "requestForm": true
+  },
+  "services": [
+    {
+      "group": "Brows",
+      "name": "Brow lamination"
+    },
+    {
+      "group": "Brows",
+      "name": "Brow wax & tint"
+    },
+    {
+      "group": "Brows",
+      "name": "Brow tint"
+    }
+  ],
+  "aboutTitle": "",
+  "about": [
+    "Mads is a Manchester brow specialist. Your natural brows, just fuller, lifted and more defined."
+  ],
+  "reviews": [],
+  "heroImage": "",
+  "gallery": [],
+  "legal": {
+    "owner": "BB Beauty",
+    "vatId": "",
+    "register": ""
+  },
+  "seoTitle": "",
+  "seoDescription": ""
+}

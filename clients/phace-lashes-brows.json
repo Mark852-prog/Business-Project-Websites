@@ -1,0 +1,73 @@
+{
+  "preview": true,
+  "lang": "en",
+  "theme": "blush",
+  "schemaType": "BeautySalon",
+  "name": "PHACE",
+  "kicker": "Lash & brow specialist in Worsley",
+  "tagline": "Natural lash lifts, classic lashes and soft, sculpted brows in Worsley, Manchester.",
+  "highlights": [
+    "Korean lash lift",
+    "Brow lamination",
+    "Worsley, Manchester"
+  ],
+  "currency": "GBP",
+  "priceRange": "££",
+  "domain": "",
+  "colors": {},
+  "contact": {
+    "phone": "",
+    "whatsapp": "",
+    "email": "",
+    "instagram": "phace.__"
+  },
+  "address": {
+    "street": "",
+    "postcode": "",
+    "city": "Worsley, Manchester",
+    "country": "GB",
+    "countryName": "United Kingdom"
+  },
+  "booking": {
+    "url": "",
+    "provider": "",
+    "requestForm": true
+  },
+  "services": [
+    {
+      "group": "Lashes",
+      "name": "Classic lashes"
+    },
+    {
+      "group": "Lashes",
+      "name": "Lash lift & tint"
+    },
+    {
+      "group": "Lashes",
+      "name": "Korean lash lift"
+    },
+    {
+      "group": "Brows",
+      "name": "Brow lamination"
+    },
+    {
+      "group": "Brows",
+      "name": "Brow wax & tint"
+    }
+  ],
+  "aboutTitle": "",
+  "about": [
+    "PHACE is a lash and brow specialist in Worsley, known for natural lifts and soft, not-too-dark brows.",
+    "From everyday lash lifts to bridal lashes and brows."
+  ],
+  "reviews": [],
+  "heroImage": "",
+  "gallery": [],
+  "legal": {
+    "owner": "PHACE",
+    "vatId": "",
+    "register": ""
+  },
+  "seoTitle": "",
+  "seoDescription": ""
+}

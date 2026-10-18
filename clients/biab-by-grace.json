@@ -1,0 +1,69 @@
+{
+  "preview": true,
+  "lang": "en",
+  "theme": "blush",
+  "schemaType": "NailSalon",
+  "name": "BIAB by Grace",
+  "kicker": "Nail tech in Manchester",
+  "tagline": "Glossy, natural BIAB nails, from classic French to little polka dots.",
+  "highlights": [
+    "Fully qualified in BIAB",
+    "French & nail art",
+    "Manchester based"
+  ],
+  "currency": "GBP",
+  "priceRange": "££",
+  "domain": "",
+  "colors": {},
+  "contact": {
+    "phone": "",
+    "whatsapp": "",
+    "email": "",
+    "instagram": "biab.bygrace"
+  },
+  "address": {
+    "street": "",
+    "postcode": "",
+    "city": "Manchester",
+    "country": "GB",
+    "countryName": "United Kingdom"
+  },
+  "booking": {
+    "url": "",
+    "provider": "",
+    "requestForm": true
+  },
+  "services": [
+    {
+      "group": "Nails",
+      "name": "BIAB overlay"
+    },
+    {
+      "group": "Nails",
+      "name": "BIAB infill"
+    },
+    {
+      "group": "Nails",
+      "name": "BIAB French"
+    },
+    {
+      "group": "Nails",
+      "name": "BIAB with nail art"
+    }
+  ],
+  "aboutTitle": "",
+  "about": [
+    "Grace is a fully qualified BIAB nail tech based in Manchester.",
+    "Think soft French tips, glossy reds and playful details like olive polka dots."
+  ],
+  "reviews": [],
+  "heroImage": "",
+  "gallery": [],
+  "legal": {
+    "owner": "BIAB by Grace",
+    "vatId": "",
+    "register": ""
+  },
+  "seoTitle": "",
+  "seoDescription": ""
+}

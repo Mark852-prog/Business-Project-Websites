@@ -1,0 +1,64 @@
+{
+  "preview": true,
+  "lang": "en",
+  "theme": "blush",
+  "schemaType": "BeautySalon",
+  "name": "Laura's Lab",
+  "kicker": "Brow & lash artist in Salford",
+  "tagline": "Your brows, but better. Hybrid brows, lash lifts and laminations in Salford, Manchester.",
+  "highlights": [
+    "Hybrid brows",
+    "Lash lifts",
+    "Salford, Manchester"
+  ],
+  "currency": "GBP",
+  "priceRange": "££",
+  "domain": "",
+  "colors": {},
+  "contact": {
+    "phone": "",
+    "whatsapp": "",
+    "email": "",
+    "instagram": "_lauraslab"
+  },
+  "address": {
+    "street": "",
+    "postcode": "",
+    "city": "Salford",
+    "country": "GB",
+    "countryName": "United Kingdom"
+  },
+  "booking": {
+    "url": "",
+    "provider": "",
+    "requestForm": true
+  },
+  "services": [
+    {
+      "group": "Brows",
+      "name": "Hybrid brows"
+    },
+    {
+      "group": "Brows",
+      "name": "Brow lamination"
+    },
+    {
+      "group": "Lashes",
+      "name": "Lash lift"
+    }
+  ],
+  "aboutTitle": "",
+  "about": [
+    "Laura is a brow and lash artist in Salford, enhancing your natural features with hybrid brows, laminations and lash lifts."
+  ],
+  "reviews": [],
+  "heroImage": "",
+  "gallery": [],
+  "legal": {
+    "owner": "Laura's Lab",
+    "vatId": "",
+    "register": ""
+  },
+  "seoTitle": "",
+  "seoDescription": ""
+}

@@ -30,11 +30,15 @@ function validate(site) {
   need(site.tagline, '"tagline" is missing');
   need(I18N[site.lang], `"lang" must be one of: ${Object.keys(I18N).join(', ')}`);
   need(THEMES[site.theme], `"theme" must be one of: ${Object.keys(THEMES).join(', ')}`);
-  need(site.address && site.address.street && site.address.city, '"address.street" and "address.city" are required');
-  need(site.contact && (site.contact.phone || site.contact.whatsapp || site.contact.email), 'add at least one of contact.phone / whatsapp / email');
+  // Many Instagram-only businesses show just an area and take bookings by DM,
+  // so a street and phone are optional for previews; a paid site still needs them.
+  need(site.address && site.address.city, '"address.city" is required');
+  need(site.preview || site.address.street, '"address.street" is required once "preview" is false');
+  need(site.contact && (site.contact.phone || site.contact.whatsapp || site.contact.email ||
+    (site.preview && site.contact.instagram)), 'add at least one of contact.phone / whatsapp / email');
   need(Array.isArray(site.services) && site.services.length, '"services" needs at least one entry');
   need(!site.kind || ['appointment', 'stay'].includes(site.kind), '"kind" must be "appointment" or "stay"');
-  need(site.kind === 'stay' || (site.hours && typeof site.hours === 'object'), '"hours" is missing');
+  need(site.kind === 'stay' || site.preview || (site.hours && typeof site.hours === 'object'), '"hours" is missing');
   for (const l of site.languages || []) need(I18N[l], `"languages": unknown language "${l}"`);
   if (site.languages) need(site.languages.includes(site.lang), '"languages" must include the main "lang"');
   if (site.hours) {

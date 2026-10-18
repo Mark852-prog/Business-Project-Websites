@@ -1,0 +1,121 @@
+{
+  "preview": true,
+  "lang": "en",
+  "theme": "blush",
+  "schemaType": "BeautySalon",
+  "name": "NANA Beauty Bar",
+  "kicker": "Lash studio in Manchester",
+  "tagline": "Custom Manhua and anime lash designs, made for your eyes, in the heart of Manchester.",
+  "highlights": [
+    "Custom Manhua lashes",
+    "Pet & kid friendly",
+    "Near the tram"
+  ],
+  "currency": "GBP",
+  "priceRange": "££",
+  "domain": "",
+  "colors": {},
+  "contact": {
+    "phone": "",
+    "whatsapp": "",
+    "email": "",
+    "instagram": "nana.beauty_lashes"
+  },
+  "address": {
+    "street": "9 Owen Street",
+    "postcode": "M15 4UA",
+    "city": "Manchester",
+    "country": "GB",
+    "countryName": "United Kingdom"
+  },
+  "booking": {
+    "url": "https://www.fresha.com/a/nana-beauty-lash-manchester-9-owen-street-dayy5ol3",
+    "provider": "Fresha",
+    "requestForm": false
+  },
+  "services": [
+    {
+      "group": "Classic",
+      "name": "Classic full set",
+      "price": 60,
+      "priceFrom": true
+    },
+    {
+      "group": "Classic",
+      "name": "Classic mini infill (up to 10 days)",
+      "price": 30
+    },
+    {
+      "group": "Classic",
+      "name": "Classic infill (2–3 weeks)",
+      "price": 40
+    },
+    {
+      "group": "Hybrid / low volume",
+      "name": "Hybrid full set",
+      "price": 70,
+      "priceFrom": true
+    },
+    {
+      "group": "Hybrid / low volume",
+      "name": "Hybrid mini infill (up to 10 days)",
+      "price": 35
+    },
+    {
+      "group": "Hybrid / low volume",
+      "name": "Hybrid infill (2–3 weeks)",
+      "price": 50
+    },
+    {
+      "group": "Russian",
+      "name": "Russian full set",
+      "price": 75,
+      "priceFrom": true
+    },
+    {
+      "group": "Russian",
+      "name": "Russian mini infill (up to 10 days)",
+      "price": 40
+    },
+    {
+      "group": "Russian",
+      "name": "Russian infill (2–3 weeks)",
+      "price": 55
+    },
+    {
+      "group": "Anime / Manhua",
+      "name": "Anime / Manhua full set",
+      "price": 75
+    },
+    {
+      "group": "Anime / Manhua",
+      "name": "Anime / Manhua mini infill (up to 10 days)",
+      "price": 40
+    },
+    {
+      "group": "Anime / Manhua",
+      "name": "Anime / Manhua infill (2–3 weeks)",
+      "price": 55
+    },
+    {
+      "group": "Removal",
+      "name": "Lash removal",
+      "price": 15
+    }
+  ],
+  "aboutTitle": "",
+  "about": [
+    "NANA Beauty Bar specialises in custom Manhua lash designs, from natural anime sets to full volume.",
+    "The studio is on Owen Street, close to Deansgate and the tram, and welcomes pets and kids."
+  ],
+  "reviews": [],
+  "heroImage": "",
+  "gallery": [],
+  "legal": {
+    "owner": "NANA Beauty Bar",
+    "vatId": "",
+    "register": ""
+  },
+  "seoTitle": "",
+  "seoDescription": ""
+}
